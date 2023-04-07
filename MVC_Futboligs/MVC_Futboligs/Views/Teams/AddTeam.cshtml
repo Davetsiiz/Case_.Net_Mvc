@@ -1,0 +1,36 @@
+﻿@model MVC_Futboligs.Entity.Teams
+@{
+    ViewBag.Title = "AddTeam";
+}
+
+
+<div class="card  col-10 mb-md-8" style="margin:initial">
+    <div class="card-header bg-dark d-flex align-items-center" style="margin:inherit;">
+        <h5 class="font-weight-semi-bold ">Futbolig Yeni Takım Tanımlama Ekranı</h5>
+    </div>
+    <div class="card-body">
+        <form class="form-group  " method="post" enctype="multipart/form-data">
+            @using (Html.BeginForm("AddTeam", "Teams", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group ">
+                    @Html.Label("Takım Adı", new {@style="font-size:20px;"})
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1"  style = "font-size:20px;">Fotoğraf Yükleyiniz</label>
+                    <br />
+                    <input class="gd-files" style="font-size:20px;" type="file" name="Logo" id="exampleFormControlFile1">
+                    @*@Html.Label("Fotoğraf Yükleyiniz")
+                        @Html.EditorFor(model=>model.Logo,new { @class="form-control ", type="file"})*@
+                </div>
+                <div class="form-group">
+                    @Html.Label("Teknik Direktör", new { @style = "font-size:20px;" })
+                    @Html.TextBoxFor(model => model.Coach, new { @class = "form-control" })
+                </div>
+                <input class="btn btn bg-success" style="text-align:center" type="submit" value="Kaydet" />
+            }
+        </form>
+    </div>
+</div>
+

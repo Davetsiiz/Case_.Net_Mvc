@@ -1,0 +1,623 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71EEC239-6E74-4CD8-8FC5-0A792D254338}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MVC_Futboligs</RootNamespace>
+    <AssemblyName>MVC_Futboligs</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44339</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Concrete\DbContextFutboligs.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
+    <Compile Include="Entity\Player.cs" />
+    <Compile Include="Entity\Teams.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Template\022-grains-master\.gitignore" />
+    <Content Include="Template\022-grains-master\documentation\alerts.html" />
+    <Content Include="Template\022-grains-master\documentation\assets\css\gd-icons.css" />
+    <Content Include="Template\022-grains-master\documentation\assets\css\gd-icons.svg" />
+    <Content Include="Template\022-grains-master\documentation\assets\css\graindashboard.css" />
+    <Content Include="Template\022-grains-master\documentation\assets\img\favicon.ico" />
+    <Content Include="Template\022-grains-master\documentation\assets\img\favicon.png" />
+    <Content Include="Template\022-grains-master\documentation\assets\img\logo-light-mini.png" />
+    <Content Include="Template\022-grains-master\documentation\assets\img\logo-light.png" />
+    <Content Include="Template\022-grains-master\documentation\assets\img\logo-mini.png" />
+    <Content Include="Template\022-grains-master\documentation\assets\img\logo.png" />
+    <Content Include="Template\022-grains-master\documentation\assets\js\graindashboard.js" />
+    <Content Include="Template\022-grains-master\documentation\assets\js\graindashboard.vendor.js" />
+    <Content Include="Template\022-grains-master\documentation\avatars.html" />
+    <Content Include="Template\022-grains-master\documentation\background.html" />
+    <Content Include="Template\022-grains-master\documentation\badges.html" />
+    <Content Include="Template\022-grains-master\documentation\borders.html" />
+    <Content Include="Template\022-grains-master\documentation\breadcrumbs.html" />
+    <Content Include="Template\022-grains-master\documentation\buttons.html" />
+    <Content Include="Template\022-grains-master\documentation\cards.html" />
+    <Content Include="Template\022-grains-master\documentation\changelog.html" />
+    <Content Include="Template\022-grains-master\documentation\collapse.html" />
+    <Content Include="Template\022-grains-master\documentation\colors.html" />
+    <Content Include="Template\022-grains-master\documentation\dropdowns.html" />
+    <Content Include="Template\022-grains-master\documentation\forms.html" />
+    <Content Include="Template\022-grains-master\documentation\icons.html" />
+    <Content Include="Template\022-grains-master\documentation\img\avatar-1.jpg" />
+    <Content Include="Template\022-grains-master\documentation\img\avatar-2.jpg" />
+    <Content Include="Template\022-grains-master\documentation\img\bitcoin-cash.svg" />
+    <Content Include="Template\022-grains-master\documentation\index.html" />
+    <Content Include="Template\022-grains-master\documentation\links.html" />
+    <Content Include="Template\022-grains-master\documentation\modals.html" />
+    <Content Include="Template\022-grains-master\documentation\navs.html" />
+    <Content Include="Template\022-grains-master\documentation\other.html" />
+    <Content Include="Template\022-grains-master\documentation\pagination.html" />
+    <Content Include="Template\022-grains-master\documentation\positions.html" />
+    <Content Include="Template\022-grains-master\documentation\progress.html" />
+    <Content Include="Template\022-grains-master\documentation\spacing.html" />
+    <Content Include="Template\022-grains-master\documentation\spinners.html" />
+    <Content Include="Template\022-grains-master\documentation\tables.html" />
+    <Content Include="Template\022-grains-master\documentation\toasts.html" />
+    <Content Include="Template\022-grains-master\documentation\transitions.html" />
+    <Content Include="Template\022-grains-master\documentation\typography.html" />
+    <Content Include="Template\022-grains-master\email-verification.html" />
+    <Content Include="Template\022-grains-master\index.html" />
+    <Content Include="Template\022-grains-master\laravel\controllers\DashboardController.php" />
+    <Content Include="Template\022-grains-master\laravel\controllers\ProfileController.php" />
+    <Content Include="Template\022-grains-master\laravel\controllers\UserController.php" />
+    <Content Include="Template\022-grains-master\laravel\public\graindashboard\css\gd-icons.css" />
+    <Content Include="Template\022-grains-master\laravel\public\graindashboard\css\gd-icons.svg" />
+    <Content Include="Template\022-grains-master\laravel\public\graindashboard\css\graindashboard.css" />
+    <Content Include="Template\022-grains-master\laravel\public\graindashboard\js\graindashboard.js" />
+    <Content Include="Template\022-grains-master\laravel\public\graindashboard\js\graindashboard.vendor.js" />
+    <Content Include="Template\022-grains-master\laravel\public\img\favicon.ico" />
+    <Content Include="Template\022-grains-master\laravel\public\img\favicon.png" />
+    <Content Include="Template\022-grains-master\laravel\public\img\logo-light-mini.png" />
+    <Content Include="Template\022-grains-master\laravel\public\img\logo-light.png" />
+    <Content Include="Template\022-grains-master\laravel\public\img\logo-mini.png" />
+    <Content Include="Template\022-grains-master\laravel\public\img\logo.png" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\gd-icons\gd-icons.css" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\gd-icons\gd-icons.svg" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\js\components.js" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\js\components\gd.malihu-scrollbar.js" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\js\components\gd.side-nav.js" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\js\components\gd.unfold.js" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\js\graindashboard.js" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\js\vendor.js" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\auth\components\footer.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\auth\login.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\auth\passwords\email.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\auth\passwords\reset.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\auth\register.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\auth\verify.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\components\footer.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\components\header.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\components\notification.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\components\pagination.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\components\sidebar.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\dashboard\show.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\layouts\app.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\layouts\grain-auth.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\layouts\grain.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\profile\edit.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\user\edit.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\user\index.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\resources\views\welcome.blade.php" />
+    <Content Include="Template\022-grains-master\laravel\routes\web.php" />
+    <Content Include="Template\022-grains-master\laravel\webpack.mix.js" />
+    <Content Include="Template\022-grains-master\login.html" />
+    <Content Include="Template\022-grains-master\password-reset-2.html" />
+    <Content Include="Template\022-grains-master\password-reset.html" />
+    <Content Include="Template\022-grains-master\public\demo\chartist-plugin-tooltip.css" />
+    <Content Include="Template\022-grains-master\public\demo\chartist-plugin-tooltip.js" />
+    <Content Include="Template\022-grains-master\public\demo\chartist.css" />
+    <Content Include="Template\022-grains-master\public\demo\chartist.js" />
+    <Content Include="Template\022-grains-master\public\demo\gd.chartist-area.js" />
+    <Content Include="Template\022-grains-master\public\demo\gd.chartist-bar.js" />
+    <Content Include="Template\022-grains-master\public\demo\gd.chartist-donut.js" />
+    <Content Include="Template\022-grains-master\public\demo\gd.chartist-pie.js" />
+    <Content Include="Template\022-grains-master\public\demo\resizeSensor.js" />
+    <Content Include="Template\022-grains-master\public\graindashboard\css\gd-icons.css" />
+    <Content Include="Template\022-grains-master\public\graindashboard\css\gd-icons.svg" />
+    <Content Include="Template\022-grains-master\public\graindashboard\css\graindashboard.css" />
+    <Content Include="Template\022-grains-master\public\graindashboard\js\graindashboard.js" />
+    <Content Include="Template\022-grains-master\public\graindashboard\js\graindashboard.vendor.js" />
+    <Content Include="Template\022-grains-master\public\img\favicon.ico" />
+    <Content Include="Template\022-grains-master\public\img\favicon.png" />
+    <Content Include="Template\022-grains-master\public\img\logo-light-mini.png" />
+    <Content Include="Template\022-grains-master\public\img\logo-light.png" />
+    <Content Include="Template\022-grains-master\public\img\logo-mini.png" />
+    <Content Include="Template\022-grains-master\public\img\logo.png" />
+    <Content Include="Template\022-grains-master\register.html" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\gd-icons\gd-icons.css" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\gd-icons\gd-icons.svg" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\js\components.js" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\js\components\gd.malihu-scrollbar.js" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\js\components\gd.side-nav.js" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\js\components\gd.unfold.js" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\js\graindashboard.js" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\js\vendor.js" />
+    <Content Include="Template\022-grains-master\settings.html" />
+    <Content Include="Template\022-grains-master\static-non-auth.html" />
+    <Content Include="Template\022-grains-master\user-edit.html" />
+    <Content Include="Template\022-grains-master\users.html" />
+    <Content Include="Template\022-grains-master\webpack.mix.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Teams\Index.cshtml" />
+    <Content Include="Views\Teams\EditTeam.cshtml" />
+    <Content Include="Views\Teams\AddTeam.cshtml" />
+    <Content Include="Template\022-grains-master\CNAME" />
+    <Content Include="Template\022-grains-master\documentation\assets\css\gd-icons.eot" />
+    <Content Include="Template\022-grains-master\documentation\assets\css\gd-icons.ttf" />
+    <Content Include="Template\022-grains-master\documentation\assets\css\gd-icons.woff" />
+    <Content Include="Template\022-grains-master\laravel\package.json" />
+    <Content Include="Template\022-grains-master\laravel\public\graindashboard\css\gd-icons.eot" />
+    <Content Include="Template\022-grains-master\laravel\public\graindashboard\css\gd-icons.ttf" />
+    <Content Include="Template\022-grains-master\laravel\public\graindashboard\css\gd-icons.woff" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\gd-icons\gd-icons.eot" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\gd-icons\gd-icons.ttf" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\gd-icons\gd-icons.woff" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\accordions\_accordions.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\alerts\_alerts.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\autocomplete\_autocomplete.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\avatar\_avatar.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\badges\_badges.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\breadcrumb\_breadcrumb.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\buttons\_buttons-sizes.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\buttons\_buttons.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\cards\_cards.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\changer\_changer.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-custom.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-divided.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-position.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-themes.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\_charts-axis-x.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\_charts-gantt.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\_charts-labels.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\_charts-points.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\_charts-timeline.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\charts\_charts.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\credit-card\_credit-card.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\datepicker\_datepicker.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\dividers\_dividers.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\dots\_dots.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\dropdowns\_dropdowns.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\form-checks\_form-checks-sizes.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\form-checks\_form-checks-text.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\form-checks\_form-checks.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\form-controls\_form-controls.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\form-radios\_form-radios-sizes.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\form-radios\_form-radios-text.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\form-radios\_form-radios.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\input-group\_input-group.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\selects\_select-bordered.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\selects\_select-simple.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\selects\_select-sizes.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\selects\_select-styles.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\selects\_selects.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\switch\_form-switch.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\forms\_forms.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\headers\_header-light.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\headers\_headers.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\hero\_bg-image-hero.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\icons\_icons.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\indicators\_indicators.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\layout\_layout.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\lists\_list-dot.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\lists\_list-group.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\lists\_list-simple.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\lists\_list-stacked.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\mixins\_background.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\mixins\_border-radius.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\mixins\_buttons.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\mixins\_check.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\mixins\_content-centered.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\mixins\_indicator.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\modals\_modals.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\paginations\_paginations.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\progress\_progress.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\reboot\_accessibility.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\reboot\_print.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\reboot\_style.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\search\_search.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\side-nav\_side-nav.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\tables\_tables.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\tabs\_tabs-designs.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile-positions.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile-text-alignment.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile-themes.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\tabs\_tabs-sizes.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\tabs\_tabs-themes.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\unfold\_unfold.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_animations.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_background.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_borders.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_colors.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_cursor.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_links.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_opacity.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_overflow.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_position.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_sizing.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_text.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_transitions.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_typo-font-sizes.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\utilities\_typo-font-weight.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\vendor\animate.css\_animate.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\vendor\chartist-plugin-tooltip\_chartist-plugin-tooltip.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\vendor\datatables\_datatables.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\vendor\dropzone\_basic.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\vendor\dropzone\_custom.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\vendor\dropzone\_dropzone.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\vendor\flatpickr\_flatpickr.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\_graindashboard.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\_mixins.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\graindashboard\_variables.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\_user-variables.scss" />
+    <Content Include="Template\022-grains-master\laravel\resources\graindashboard\sass\_user.scss" />
+    <Content Include="Template\022-grains-master\package-lock.json" />
+    <Content Include="Template\022-grains-master\package.json" />
+    <Content Include="Template\022-grains-master\public\graindashboard\css\gd-icons.eot" />
+    <Content Include="Template\022-grains-master\public\graindashboard\css\gd-icons.ttf" />
+    <Content Include="Template\022-grains-master\public\graindashboard\css\gd-icons.woff" />
+    <Content Include="Template\022-grains-master\public\mix-manifest.json" />
+    <Content Include="Template\022-grains-master\readme.md" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\gd-icons\gd-icons.eot" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\gd-icons\gd-icons.ttf" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\gd-icons\gd-icons.woff" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\accordions\_accordions.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\alerts\_alerts.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\autocomplete\_autocomplete.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\avatar\_avatar.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\badges\_badges.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\breadcrumb\_breadcrumb.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\buttons\_buttons-sizes.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\buttons\_buttons.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\cards\_cards.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\changer\_changer.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-custom.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-divided.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-position.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips-themes.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\tooltips\_tooltips.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts-axis-x.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts-gantt.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts-labels.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts-points.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts-timeline.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\charts\_charts.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\credit-card\_credit-card.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\datepicker\_datepicker.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\dividers\_dividers.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\dots\_dots.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\dropdowns\_dropdowns.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-checks\_form-checks-sizes.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-checks\_form-checks-text.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-checks\_form-checks.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-controls\_form-controls.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-radios\_form-radios-sizes.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-radios\_form-radios-text.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\form-radios\_form-radios.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\input-group\_input-group.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\selects\_select-bordered.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\selects\_select-simple.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\selects\_select-sizes.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\selects\_select-styles.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\selects\_selects.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\switch\_form-switch.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\forms\_forms.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\headers\_header-light.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\headers\_headers.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\hero\_bg-image-hero.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\icons\_icons.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\indicators\_indicators.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\layout\_layout.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\lists\_list-dot.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\lists\_list-group.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\lists\_list-simple.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\lists\_list-stacked.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_background.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_border-radius.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_buttons.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_check.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_content-centered.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\mixins\_indicator.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\modals\_modals.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\paginations\_paginations.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\progress\_progress.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\reboot\_accessibility.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\reboot\_print.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\reboot\_style.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\search\_search.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\side-nav\_side-nav.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\tables\_tables.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-designs.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile-positions.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile-text-alignment.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile-themes.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-mobile.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-sizes.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\tabs\_tabs-themes.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\unfold\_unfold.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_animations.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_background.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_borders.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_colors.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_cursor.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_links.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_opacity.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_overflow.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_position.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_sizing.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_text.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_transitions.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_typo-font-sizes.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\utilities\_typo-font-weight.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\animate.css\_animate.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\chartist-plugin-tooltip\_chartist-plugin-tooltip.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\datatables\_datatables.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\dropzone\_basic.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\dropzone\_custom.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\dropzone\_dropzone.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\vendor\flatpickr\_flatpickr.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\_graindashboard.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\_mixins.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\graindashboard\_variables.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\_user-variables.scss" />
+    <Content Include="Template\022-grains-master\resources\graindashboard\sass\_user.scss" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Player\Index.cshtml" />
+    <Content Include="Views\Player\PlayerAdd.cshtml" />
+    <Content Include="Views\Player\PlayerEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51564</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44339/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,48 @@
+﻿@model MVC_Futboligs.Entity.Player
+@{
+    ViewBag.Title = "PlayerAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card  col-10 mb-md-8" style="margin:initial">
+    <div class="card-header bg-dark d-flex align-items-center" style="margin:inherit;">
+        <h5 class="font-weight-semi-bold ">Futbolig Yeni Futbolcu Tanımlama Ekranı</h5>
+    </div>
+    <div class="card-body">
+        <form class="form-group  " method="post" enctype="multipart/form-data">
+            @using (Html.BeginForm("PlayerAdd", "Player", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, "Futbolcu Adı", new { @style = "font-size:20px;" })
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label style="font-size:20px;" class="ct-labels">Fotoğraf Yükleyiniz</label><br />
+                    <input onchange="loadFile(event)"  accept="/Image/*" style="font-size:20px;" type="file" name="Photo" id="exampleFormControlFile1">
+                    <p><img id="image" style="display:none;" class="avatar-xl rounded-circle" /></p>
+                    
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Age,"Yaş",new { @style = "font-size:20px;" })
+                    @Html.TextBoxFor(model => model.Age, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TeamId, "Takım Seçin", new { @class = "font-size:20px" })
+                    <div>
+                        @Html.DropDownListFor(model => model.TeamId, ViewBag.tId as SelectList, "--Takım Seçiniz--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TeamId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <input class="btn btn bg-success" style="text-align:center" type="submit" value="Kaydet" />
+            }
+        </form>
+    </div>
+</div>
+<script>
+    var loadFile = function (event) {
+        var photo = document.getElementById("image");
+        photo.src = URL.createObjectURL(event.target.files[0]);
+        $("#image").show(100);
+    };
+</script>

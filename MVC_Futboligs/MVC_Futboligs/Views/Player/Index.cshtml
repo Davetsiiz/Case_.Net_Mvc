@@ -1,0 +1,115 @@
+﻿@model List<MVC_Futboligs.Entity.Player>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</head>
+<div class="card  col-md-10" style="text-align:center">
+    <div class="card-header d-xl-flex">
+
+
+        <div class="d-flex align-items-center ml-xl-auto">
+
+
+            <a class="link-dark d-flex align-items-center ml-6 ml-xl-8" href="/Teams/PlayerAdd">
+                <i class="gd-plug icon-text mr-1"></i>
+                <span>Yeni Futbolcu Ekle</span>
+            </a>
+
+
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="card-header bg-dark d-flex align-items-center" style="margin:inherit;">
+            <h5 class="font-weight-semi-bold ">Futbolcular</h5>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr class="col-10">
+                    <th>#</th>
+                    <th>Futbolcu Adı</th>
+                    <th>Fotoğraf</th>
+                    <th>Yaş</th>
+                    <th>Takımı</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                    <th>Transfer Market Linki</th>
+                </tr>
+            </thead>
+            <tbody id="datatable">
+                @{ int sayac = 0;}
+                @foreach (var item in Model)
+                {
+                    sayac++;
+                    <tr>
+                        <td>@sayac</td>
+                        <td>@item.Name</td>
+                        <td><img class="avatar-xl rounded-circle" src="@item.Photo" /></td>
+                        <td>@item.Age</td>
+                        <td>
+                            @item.TeamId
+
+                    </td>
+                    <td>
+                        <a class="btn" href="/Player/PlayerDelete/@item.Id">
+                            <i class="gd-close icon-text"></i>
+                            <span>Sil</span>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn" href="/Player/PlayerEdit/@item.Id">
+                            <i class="gd-pencil icon-text"></i>
+                            <span>Güncelleme</span>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn" href="/Player/Player/@item.Id">
+                            <i class="gd-user icon-text"></i>
+                            <span>Transfer Market</span>
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+
+    setInterval(function () {
+        $.ajax({
+            url: '/Player/GetUpdateData',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $('#datatable').empty();
+                let sayac = 0;
+                $.each(data, function (Index, item) {
+
+                    sayac++
+
+                    var row = '<tr><td>' + sayac + '</td><td>' + item.Name + '</td><td><img class="avatar-xl rounded-circle" src="' + item.Photo + '" /></td><td>' + item.Age + '</td><td>' + item.TeamId + '</td><td><a class="btn" href="/Player/PlayerDelete/' + item.Id + '"><i class="gd-close icon-text"></i><span >Sil</span></a></td><td><a class="btn" href="/Player/PlayerEdit/' + item.Id + '"><i class="gd-pencil icon-text"></i><span >Güncelleme</span></a></td> </td><td><a class="btn" href="/Player/Player/' + item.Id + '"><i class="gd-user icon-text"></i><span>Transfer Market</span></a></td>';
+
+
+
+
+
+                    $('#datatable').append(row);
+                });
+            }
+        });
+    }, 5000);
+
+
+
+
+</script>
+
+
+@*@{   MVC_Futboligs.Concrete.DbContextFutboligs dbt = new MVC_Futboligs.Concrete.DbContextFutboligs();
+    var ts = dbt.TeamsS.FirstOrDefault(s=>s.Id==item.TeamId);
+    <span>@ts.Name</span>
+    }*@

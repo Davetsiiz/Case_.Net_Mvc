@@ -1,0 +1,123 @@
+﻿@model List<MVC_Futboligs.Entity.Teams>
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</head>
+<div class="card  col-md-10"style="text-align:center">
+    <div class="card-header d-xl-flex">
+
+
+        <div class="d-flex align-items-center ml-xl-auto">
+
+
+            <a class="link-dark d-flex align-items-center ml-6 ml-xl-8" href="/Teams/AddTeam">
+                <i class="gd-plug icon-text mr-1"></i>
+                <span>Yeni Takım Ekle</span>
+            </a>
+
+
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="card-header bg-dark d-flex align-items-center" style="margin:inherit;">
+            <h5 class="font-weight-semi-bold ">Futbolig Takımlar</h5>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr class="col-10">
+                    <th>#</th>
+                    <th>Takım Adı</th>
+                    <th>Logo</th>
+                    <th>Teknik Dİrektör</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                    <th>Oyuncular</th>
+                </tr>
+            </thead>
+            <tbody id="datatable">
+                @{int sayac = 0; }
+                @foreach (var item in Model)
+                {
+                    sayac += 1;
+                    string dropDown8Invoker = "dropDown8Invoker" + item.Id;
+                    string dropDown8 = "dropDown8" + item.Id;
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td><img class="avatar-xl rounded-circle" src="@item.Logo" /></td>
+                        <td>@item.Coach</td>
+                        <td>
+                            <a class="btn" href="/Teams/DeleteTeam/@item.Id">
+                                <i class="gd-close icon-text"></i>
+                                <span>Sil</span>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn" href="/Teams/EditTeam/@item.Id">
+                                <i class="gd-pencil icon-text"></i>
+                                <span>Güncelleme</span>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn" href="/Player/Player/@item.Id">
+                                <i class="gd-user icon-text"></i>
+                                <span>Oyuncular</span>
+                            </a>
+                        </td>
+                        @*<td>
+                                <div class="position-relative ml-auto ml-xl-12">
+                                    <a id="@dropDown8Invoker" class="unfold-invoker d-flex" href="#" aria-controls="@dropDown8" aria-haspopup="true" aria-expanded="false" data-unfold-target="#@dropDown8" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
+                                        <i class="gd-angle-double-down"></i>
+                                    </a>
+                                    <ul id="@dropDown8" class="unfold unfold-light unfold-top unfold-right position-absolute py-3 mt-3 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="@dropDown8Invoker" style="min-width: 150px; animation-duration: 300ms;">
+                                        <li class="unfold-item">
+                                            <a class="unfold-link media align-items-center text-nowrap" href="/Teams/EditTeam/@item.Id">
+                                                <i class="gd-pencil unfold-item-icon mr-3"></i>
+                                                <span class="media-body">Güncelleme</span>
+                                            </a>
+                                        </li>
+                                        <li class="unfold-item">
+                                            <a class="unfold-link media align-items-center text-nowrap" href="/Teams/DeleteTeam/@item.Id">
+                                                <i class="gd-close unfold-item-icon mr-3"></i>
+                                                <span class="media-body">Sil</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+
+    setInterval(function () {
+        $.ajax({
+            url: '/Teams/GetUpdateData',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $('#datatable').empty();
+                $.each(data, function (Index, item) {
+
+                    //var dropDown8Invoker = "dropDown8Invoker" + item.Id;
+                    //var dropDown8 = "dropDown8" + item.Id;
+                    /*var row = '<tr><td>' + item.Id + '</td><td>' + item.Name + '</td><td><img class="avatar-xl rounded-circle" src="' + item.Logo + '" /></td><td>' + item.Coach + '</td><td><div class="position-relative ml-auto ml-xl-12"><a id="' + dropDown8Invoker + '" class="unfold-invoker d-flex" href="#" aria-controls="' + dropDown8 + '" aria-haspopup="true" aria-expanded="false" data-unfold-target="#' + dropDown8 + '" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut"><i class="gd-angle-double-down"></i></a><ul id="' + dropDown8 + '" class="unfold unfold-light unfold-top unfold-right position-absolute py-3 mt-3 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="' + dropDown8Invoker + '" style="min-width: 150px; animation-duration: 300ms;"><li class="unfold-item"><a class="unfold-link media align-items-center text-nowrap" href="/Teams/EditTeam/' + item.Id + '"><i class="gd-pencil unfold-item-icon mr-3"></i><span class="media-body">Güncelleme</span></a></li><li class="unfold-item"><a class="unfold-link media align-items-center text-nowrap" href="/Teams/DeleteTeam/' + item.Id + '"><i class="gd-close unfold-item-icon mr-3"></i><span class="media-body">Sil</span></a></li></ul></div></td></tr>';*/
+
+                    var row = '<tr><td>' + item.Id + '</td><td>' + item.Name + '</td><td><img class="avatar-xl rounded-circle" src="' + item.Logo + '" /></td><td>' + item.Coach + '</td><td><a class="btn" href="/Teams/DeleteTeam/' + item.Id + '"><i class="gd-close icon-text"></i><span >Sil</span></a></td><td><a class="btn" href="/Teams/EditTeam/' + item.Id + '"><i class="gd-pencil icon-text"></i><span >Güncelleme</span></a></td> </td><td><a class="btn" href="/Player/Player/' + item.Id + '"><i class="gd-user icon-text"></i><span>Oyuncular</span></a></td>';
+
+
+                    $('#datatable').append(row);
+                });
+            }
+        });
+    }, 5000);
+
+
+
+
+</script>
